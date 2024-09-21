@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<company_Google>
+		<name>Google</name>
+		<address>1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</address>
+		<specialization>search engine and advertising, cloud computing and enterprise solutions, mobile operating system</specialization>
+		<employeeCount>30000</employeeCount>
+	</company_Google>
+</configuration>
