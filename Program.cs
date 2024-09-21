@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<ISelectCompany, SelectCompany>();
 
-// Çàâäàííÿ 1
+// Ð—Ð°Ð²Ð´Ð°Ð½Ð½Ñ 1
 // JSON
 builder.Configuration.AddJsonFile("CustomConfigurations/Apple.json");
 builder.Configuration["company_" + builder.Configuration["name"] + builder.Configuration["address"] + 
@@ -22,12 +22,12 @@ builder.Configuration["company_" + builder.Configuration["name"] + builder.Confi
     builder.Configuration["specialization"]] = builder.Configuration["employeeCount"];
 
 
-// Çàâäàííÿ 2
+// Ð—Ð°Ð²Ð´Ð°Ð½Ð½Ñ 2
 builder.Configuration.AddJsonFile("CustomConfigurations/InfoAboutMe.json");
 
 var app = builder.Build();
 
-// Âèâåäåííÿ ³íôîðìàö³¿ ïðî íàéá³ëüøó êîìïàí³þ
+// Ð’Ð¸Ð²ÐµÐ´ÐµÐ½Ð½Ñ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ— Ð¿Ñ€Ð¾ Ð½Ð°Ð¹Ð±Ñ–Ð»ÑŒÑˆÑƒ ÐºÐ¾Ð¼Ð¿Ð°Ð½Ñ–ÑŽ
 app.Use(async (context, next) =>
 {
     var selectorCompanyService = app.Services.GetService<ISelectCompany>();
@@ -36,7 +36,7 @@ app.Use(async (context, next) =>
     await next();
 });
 
-// Âèâåäåííÿ ³íôîðìàö³¿ ïðî êîðèñòóâà÷à
+// Ð’Ð¸Ð²ÐµÐ´ÐµÐ½Ð½Ñ Ñ–Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ñ–Ñ— Ð¿Ñ€Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÐ²Ð°Ñ‡Ð°
 app.Use(async (context, next) =>
 {
     await context.Response.WriteAsync($"Student: {app.Configuration["student"]}\nGroup: {app.Configuration["group"]}\nHobbies: {app.Configuration["hobbies"]}");
